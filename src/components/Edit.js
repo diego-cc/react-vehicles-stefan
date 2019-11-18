@@ -95,6 +95,13 @@ export class Edit extends Component {
 			  )
 		  }
 		  <MDBBtn
+			onClick={() => this.props.history.push(`/`)}
+			color="danger"
+			type="submit">
+			Cancel
+		  </MDBBtn>
+		  <MDBBtn
+			className="ml-5"
 			color="success"
 			type="submit">
 			Submit
