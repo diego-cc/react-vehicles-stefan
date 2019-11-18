@@ -60,7 +60,7 @@ export class Edit extends Component {
 		  <p className="h4 text-center mb-4">Edit
 			vehicle: {vehicle ? `${vehicle.manufacturer} ${vehicle.model}` : ''}</p>
 		  {
-		    // if the vehicle has been found, render all of its details in the form
+			// if the vehicle has been found, render all of its details in the form
 			// otherwise, show a loading spinner
 			vehicle ?
 			  (
@@ -97,7 +97,7 @@ export class Edit extends Component {
 		  <MDBBtn
 			onClick={() => this.props.history.push(`/`)}
 			color="danger"
-			type="submit">
+		  >
 			Cancel
 		  </MDBBtn>
 		  <MDBBtn
