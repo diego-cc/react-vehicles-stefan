@@ -8,11 +8,12 @@ export class Edit extends Component {
   state = {};
 
   componentDidMount() {
-	console.log('All vehicles coming from the state in App.js:')
-	console.dir(this.props.vehicles);
+    const {vehicles} = this.props;
+	console.log('All vehicles coming from the state in App.js:');
+	console.dir(vehicles);
 
 	// find the vehicle to be edited by its "iid"
-	const vehicle = this.props.vehicles.find(
+	const vehicle = vehicles.find(
 	  v => v.iid === this.props.match.params.iid
 	);
 	console.log('Vehicle selected by iid:');
@@ -26,7 +27,7 @@ export class Edit extends Component {
 	e.preventDefault();
 	const {name, value} = e.target;
 	this.setState(prevState => {
-	  let {vehicle} = prevState;
+	  let vehicle = {...prevState.vehicle};
 	  vehicle[name] = value;
 
 	  return ({vehicle})
