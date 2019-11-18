@@ -5,7 +5,14 @@ import React, {Component} from 'react';
 import {MDBBtn, MDBContainer, MDBRow} from "mdbreact";
 
 export class Edit extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.initialState = {
+      vehicle: null
+	};
+
+    this.state = {...this.initialState};
+  }
 
   componentDidMount() {
     const {vehicles} = this.props;
@@ -19,7 +26,8 @@ export class Edit extends Component {
 	console.log('Vehicle selected by iid:');
 	console.dir(vehicle);
 
-	this.setState({vehicle});
+	this.initialState = {vehicle: {...vehicle}};
+	this.setState({...this.initialState});
   }
 
   // allows for the form to be edited
@@ -27,7 +35,7 @@ export class Edit extends Component {
 	e.preventDefault();
 	const {name, value} = e.target;
 	this.setState(prevState => {
-	  let vehicle = {...prevState.vehicle};
+	  let {vehicle} = prevState;
 	  vehicle[name] = value;
 
 	  return ({vehicle})
